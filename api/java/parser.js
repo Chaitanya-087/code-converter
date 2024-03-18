@@ -30,7 +30,12 @@ class Parser {
         let currNode = this.root;
         let stack = []; //to track the block scope
         while (this.currentIndex < this.tokens.length) {
-
+            if (this.currentToken[1] === '{') {
+                stack.push(currNode);
+                this.advance();
+                continue;
+            }
+            
             this.currentIndex++;
             
         }
